@@ -1,0 +1,1 @@
+C:\Users\winserverroot\Desktop\test\csr1\wacs.exe --target iissite --siteid %1 --installation iis --verbose

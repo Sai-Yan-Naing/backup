@@ -1,0 +1,1 @@
+php hosts.php %1 %2 >> C:\Windows\System32\Drivers\etc\hosts

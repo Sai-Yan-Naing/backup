@@ -1,0 +1,596 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN">
+<html>
+
+<head>
+    <title>Bassman</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    
+    <style type="text/css">
+        body{
+            font-family     : Georgia;
+        }
+        
+        a{
+            color           : #BB3333;
+        }
+        
+        .header{
+            background      : #FDFDFD;
+            border          : solid 0.1em #000000;
+            border-bottom   : solid 0.5em #000000;
+            color           : #000000;
+            padding         : 2em 0.5em 0em 0.5em;
+            text-align      : right;
+            font-size       : 200%;
+            font-family     : "Bookman Old Style";
+        }
+        
+        .footer{
+            background      : #FDFDFD;
+            border          : solid 0.1em #000000;
+            border-top      : solid 0.5em #000000;
+            color           : #000000;
+            padding         : 0em 0.5em 2em 0.5em;
+            text-align      : right;
+            font-size       : 100%;
+        }
+        
+        div.index{
+        	float			: right;
+        	border			: double 6px #CCCCCC;
+        	background		: #FFFFFF;
+        	margin			: 0em 1em 1em 1em;
+        }
+        
+        h2.index{
+        	border-bottom	: solid 0.2em #000000;
+        	margin			: 0em;
+        	padding			: 1em 0em 0em 0em;
+        	text-align		: right;
+        }
+        
+        ul.index{
+        	line-height		: 1.8em;
+        	margin			: 0em 1em 0em 1.5em;
+        }
+        
+        dl.item{
+        }
+        
+        dt.item{
+            border-left     : solid 0.5em #CCCCCC;
+            border-bottom   : solid 0.1em #CCCCCC;
+            margin-bottom   : 0.5em;
+            font-size       : 250%;
+        }
+        
+        dd.item{
+            margin-bottom   : 3em;
+        }
+        
+        dl.item2{
+        }
+        
+        dt.item2{
+            border-bottom   : solid 1px #CCCCCC;
+            margin-bottom   : 0.5em;
+            font-weight     : bold;
+        }
+        
+        dd.item2{
+            margin-bottom   : 1em;
+        }
+        
+        .code{
+            white-space     : pre;
+            font-family     : monospace; 
+            border-left     : double 9px #CCCCCC; 
+            font-size       : 80%;
+            line-height     : 1em;
+        }
+        
+        .codecomment{
+        	font-size		: 80%;
+        }
+        
+        .attention{
+        	margin-left		: 2em;
+        }
+        
+        dl.reference{
+        }
+        
+        dt.reference{
+            text-decoration : underline;
+            font-size       : 150%;
+            font-weight     : bold;
+        }
+        
+        dd.reference{
+            border-left     : dashed 1px #333333;
+            padding         : 0em 0em 0em 1em;
+            line-height     : 1.3em;
+			margin-bottom	: 5em;
+        }
+        
+        dl.example{
+            margin          : 1em 3em 1em 1em;
+            padding         : 0.5em;
+            border          : solid 1px #CCCCCC;
+            background      : #F8F8F8;
+        }
+        
+        dt.example{
+            border-bottom   : solid 1px #CCCCCC;
+            margin-bottom   : 0.5em;
+            font-weight     : bold;
+        }
+        
+        dd.example{
+        }
+        
+    </style>
+    
+</head>
+
+<body>
+    <h1 class="header">Bassman</h1>
+
+
+
+	<div class="index">
+		<h2 class="index">INDEX</h2>
+		
+	    <ul class="index">
+	    <li><a href="#idBassman">Bassmanとは？</a></li>
+	    <li><a href="#idEnvironment">動作環境</a></li>
+	    <li><a href="#idPackage">パッケージ内容</a></li>
+		<li><a href="#idAttention">注意事項</a></li>
+	    <li><a href="#idInstall">インストール方法</a></li>
+	    <li><a href="#idSetting">設定ファイルの書き方</a></li>
+	    <li><a href="#idReference">設定リファレンス</a></li>
+	    <li><a href="#idHistory">更新履歴</a></li>
+	    </ul>
+	</div>
+	
+	
+	
+    <dl class="item">
+    <dt class="item" id="idBassman">Bassmanとは？</dt>
+    <dd class="item">
+        <p>
+            Bassmanは簡易Basic認証をするためのISAPI Filterです。<br />
+            簡易Basic認証とはIISにおいてWindowsユーザーを作らずに行う基本認証です。<br/>
+            ユーザーは設定ファイルやデータベースにて指定ができます。<br/>
+        </p>
+    </dd>
+    
+    
+    
+    <dt class="item" id="idEnvironment">動作環境</dt>
+    <dd class="item">
+        IIS 5.0, 5.1, 6.0, 7.0, 7.5 and later
+    </dd>
+    
+    
+    
+    <dt class="item" id="idPackage">パッケージ内容</dt>
+    <dd class="item">
+        <dl class="item2">
+        <dt class="item2">Bassman.dll</dt>
+        <dd class="item2">
+            ISAPI Filter本体
+        </dd>
+        
+        <dt class="item2">Bassman.setting</dt>
+        <dd class="item2">
+            設定ファイル
+        </dd>
+        
+        </dl>
+    </dd>
+    
+    
+    
+    <dt class="item" id="idAttention">注意事項</dt>
+    <dd class="item">
+        <ol>
+        <li>本ソフトウェアの利用は良識の範囲内でお願い致します。</li>
+        <li>本ソフトウェアの利用による損害の保証はお受けできません。</li>
+        <li>本ソフトウェアの利用は楽しんで行っていただきますようお願い致します。</li>
+        </ol>
+    </dd>
+    
+    
+    
+    <dt class="item" id="idInstall">インストール方法</dt>
+    <dd class="item">
+        <ol>
+        <li>"Bassman.setting" を目的の設定に編集。</li>
+        <li>"Bassman.dll" を目的のWebサイトのISAPIフィルタに設定。</li>
+        </ol>
+    </dd>
+    
+    
+    
+    <dt class="item" id="idSetting">設定ファイルの書き方</dt>
+    <dd class="item">
+        <p>
+            設定ファイルはXMLで記述してください。<br />
+        </p>
+        
+        <dl class="item2">
+        <dt class="item2">例</dt>
+        <dd class="item2 code">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;bassman&gt;
+    &lt;area url="/member/.*" name="MemberAREA"&gt;
+        &lt;user name="yamada" passwd="1234"/&gt;
+        &lt;user name="satou" passwd="2345"/&gt;
+        &lt;user name="suzuki" passwd="3456"/&gt;
+    &lt;/area&gt;
+
+    &lt;area url="/admin/.*" name="AdminAREA"&gt;
+        &lt;user name="kinoshita" passwd="1234"/&gt;
+    &lt;/area&gt;
+
+    &lt;area url="/user/.*" name="UesrAREA"&gt;
+        &lt;db
+            connection="Provider=SQLOLEDB;Server=xxx;Database=xxx;User ID=xxx;Password=xxx" 
+            sql="select id from TUser where name=? and passwd=?"
+        /&gt;
+    &lt;/area&gt;
+
+&lt;/bassman&gt;
+        </dd>
+        
+        <dt class="item2">説明</dt>
+        <dd class="item2 codecomment">
+            <ul>
+            <li>"/member/" 配下へのアクセスはBasic認証で "yamada", "satou", "suzuki" のみ。</li>
+            <li>"/admin/" 配下へアクセスはBasic認証で "kinoshita" のみ。</li>
+            <li>"/user/" 配下へアクセスはBasic認証でデータベース "xxx" のテーブル "TUser" にいるユーザーのみ。</li>
+            </ul>
+        </dd>
+        
+        </dl>
+
+    </dd>
+    
+    
+    
+    <dt class="item" id="idReference">設定リファレンス</dt>
+    <dd class="item">
+        <dl class="reference">
+        <dt class="reference">&lt;bassman/&gt;</dt>
+        <dd class="reference">
+            <p>
+                Bassman設定のルート要素。
+            </p>
+            
+            <dl class="item2">
+            <dt class="item2">属性</dt>
+            <dd class="item2">
+                <dl class="reference">
+                <dt class="reference">reloadkey</dt>
+                <dd class="reference">
+                    <p>
+                        設定ファイルをリロードする際のキー。<br />
+                        文字 '/' から始まる文字列を指定して下さい。<br />
+                        キーはばれないよう、複雑なものにして下さい。<br />
+                        キーを指定しない場合、もしくは空文字列の場合は動作中の設定ファイルのリロードはできません。<br />
+                        キーを指定しない場合はサーバーの再起動やアプリケーションプールのリサイクルによって設定を反映してください。<br/>
+                    </p>
+                    
+                    <dl class="example">
+                    <dt class="example">例</dt>
+                    <dd class="example code">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;bassman reloadkey="/soeu73nc70zzz"&gt;
+    ...
+&lt;/bassman&gt;
+                    </dd>
+                    
+                    <dt class="example">説明</dt>
+                    <dd class="example codecomment">
+                        設定ファイルを変更した際、<br />
+                        <span class="attention">http://yourhostname/soeu73nc70zzz</span><br/>
+                        にアクセスすることで動作中に設定をリロードできます。<br />
+                    </dd>
+                    
+                    </dl>
+                </dd>
+                
+                </dl>
+            </dd>
+            
+            <dt class="item2">子要素</dt>
+            <dd class="item2">
+                <ul>
+                <li>&lt;area/&gt;</li>
+                </ul>
+            </dd>
+            
+            </dl>
+        </dd>
+        
+        <dt class="reference">&lt;area/&gt;</dt>
+        <dd class="reference">
+            <p>
+                認証エリアの定義。<br/>
+                アクセスしてきたURLとurl(属性)がマッチした際に認証をかけます。<br/>
+                &lt;area/&gt;は上から順に走査され、url(属性)の正規表現がマッチしたところで走査を終了し&lt;user/&gt;の認証を行います。<br/>
+                &lt;user/&gt;が一つもない&lt;area/&gt;を定義するとBassmanで認証をかけないエリアを作ることができます。<br/>
+                あるエリアだけIISに認証を任せたい場合などに利用できます。<br/>
+                
+                <div class="attention" style="background:#FEE; border:1px solid #DDD; padding:5px; ">
+                	※注意事項※<br/>
+                	
+                	url(属性)で指定したWebフォルダの認証方法(*1)に匿名アクセス以外のチェックが入っていると、<br/>
+                	ブラウザからアクセスした際に認証が二重で行われてうまく動作しません。<br/>
+                	Bassmanに認証を任せるWebフォルダは匿名アクセス*のみ*にチェックを入れる必要があります。<br/>
+                	(*1:IISの設定ダイアログの「匿名アクセスおよび認証コントロール」の「編集」)<br/>
+                </div>
+                
+            </p>
+            
+            <dl class="item2">
+            <dt class="item2">属性</dt>
+            <dd class="item2">
+                <dl class="reference">
+                <dt class="reference">url</dt>
+                <dd class="reference">
+                    <p>
+                        アクセスしてきたURLに反応したい正規表現。<br />
+                        正規表現はPerl互換(<a href="http://www.boost.org/doc/libs/1_34_1/libs/regex/doc/syntax_perl.html">Boost.Regex　Perl Regular Expression Syntax</a>)で記述して下さい。<br />
+                    </p>
+                    
+                    <dl class="example">
+                    <dt class="example">例</dt>
+                    <dd class="example code">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;bassman reloadkey="/1234"&gt;
+    &lt;area url="/member/.*" name="MemberAREA"&gt;
+        &lt;user name="m001" passwd="1234"/&gt;
+        &lt;user name="m002" passwd="2345"/&gt;
+        &lt;user name="m003" passwd="3456"/&gt;
+    &lt;/area&gt;
+
+    &lt;area url="/admin/.*" name="AdminAREA"&gt;
+        &lt;user name="a001" passwd="1234"/&gt;
+    &lt;/area&gt;
+
+    &lt;area url="/realbasic/.*"/&gt;
+
+&lt;/bassman&gt;
+                    </dd>
+                    
+                    <dt class="example">説明</dt>
+                    <dd class="example codecomment">
+                        以下のようなアクセス、<br />
+                        <span class="attention">http://yourhostname/member/index.html</span><br/>
+                        をすると、Basic認証がかかり、"m001","m002","m003" のみがアクセスできます。<br />
+                        以下のようなアクセス、<br />
+                        <span class="attention">http://yourhostname/admin/index.html</span><br/>
+                        をすると、Basic認証がかかり、"a001" のみがアクセスできます。<br />
+                        以下のようなアクセス、<br />
+                        <span class="attention">http://yourhostname/realbasic/index.html</span><br/>
+                        をすると、Bassmanの認証はかかりませんのでIISネイティブの認証をかけたりすることができます。<br/>
+                    </dd>
+                    
+                    </dl>
+                </dd>
+                
+                <dt class="reference">name</dt>
+                <dd class="reference">
+                    <p>
+                    	エリアの名前を指定します。<br/>
+                    	名前は Basic認証 の "realm" に利用されます。<br/>
+                    </p>
+                </dd>
+                
+                </dl>
+            </dd>
+            
+            <dt class="item2">子要素</dt>
+            <dd class="item2">
+                <ul>
+                <li>&lt;user/&gt;</li>
+                </ul>
+            </dd>
+            
+            </dl>
+        </dd>
+        
+        <dt class="reference">&lt;area/&gt; - &lt;user/&gt;</dt>
+        <dd class="reference">
+            <p>
+            	認証ユーザーの定義。<br/>
+            	ユーザーは複数指定することができます。<br/>
+            	認証されたユーザーの名前はCGIなどからサーバー環境変数 "HTTP_X_BASSMAN_USERNAME" で取得可能です。<br/>
+            </p>
+            
+            <dl class="item2">
+            <dt class="item2">属性</dt>
+            <dd class="item2">
+                <dl class="reference">
+                <dt class="reference">name</dt>
+                <dd class="reference">
+                    <p>
+                        ユーザー名。<br/>
+                    </p>
+                </dd>
+                
+                <dt class="reference">passwd</dt>
+                <dd class="reference">
+                    <p>
+                    	パスワード。<br/>
+                    </p>
+                </dd>
+                
+                </dl>
+            </dd>
+            
+            <dt class="item2">子要素</dt>
+            <dd class="item2">
+                [なし]
+            </dd>
+            
+            </dl>
+        </dd>
+        
+        <dt class="reference">&lt;area/&gt; - &lt;db/&gt;</dt>
+        <dd class="reference">
+            <p>
+            	ユーザーをデータベースから引くようにします。<br/>
+            </p>
+            
+            <dl class="example">
+            <dt class="example">例</dt>
+            <dd class="example code">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;bassman reloadkey="/1234"&gt;
+    &lt;area url="/user1/.*" name="UesrAREA1"&gt;
+        &lt;db
+            connection="Provider=SQLOLEDB;Server=xxx;Database=xxx;User ID=xxx;Password=xxx" 
+            sql="select id from TUser1 where name=? and passwd=?"
+        /&gt;
+    &lt;/area&gt;
+
+    &lt;area url="/user2/.*" name="UesrAREA2"&gt;
+        &lt;db
+            connection="Provider=SQLOLEDB;Server=xxx;Database=xxx;User ID=xxx;Password=xxx" 
+            sql="select id from TUser2 where name=@name and passwd=@passwd"
+            sql_param_name="@name"
+            sql_param_passwd="@passwd"
+        /&gt;
+    &lt;/area&gt;
+
+&lt;/bassman&gt;
+            </dd>
+            
+            <dt class="example">説明</dt>
+            <dd class="example codecomment">
+                以下のようなアクセス、<br />
+                <span class="attention">http://yourhostname/user1/index.html</span><br/>
+                をすると、Basic認証がかかり、データベース"xxx"のテーブル"TUser1"に存在するユーザーのみがアクセスできます。<br />
+                以下のようなアクセス、<br />
+                <span class="attention">http://yourhostname/user2/index.html</span><br/>
+                をすると、Basic認証がかかり、データベース"xxx"のテーブル"TUser2"に存在するユーザーのみがアクセスできます。<br />
+                認証が通った場合、"TUser1.id"列や"TUser2.id"列はサーバー環境変数 "HTTP_X_BASSMAN_DB_ID" でCGIなどから取得可能です。<br/>
+            </dd>
+            
+            </dl>
+            
+            <dl class="item2">
+            <dt class="item2">属性</dt>
+            <dd class="item2">
+                <dl class="reference">
+                <dt class="reference">connection</dt>
+                <dd class="reference">
+                    <p>
+                        データベースへの接続文字列を指定します。<br/>
+                    </p>
+                </dd>
+                
+                <dt class="reference">sql</dt>
+                <dd class="reference">
+                    <p>
+                        ユーザーを引くSQL文を指定します。<br/>
+                        このSQL文によってselectされた列はCGIなどからサーバー環境変数 "HTTP_X_BASSMAN_DB_*" で取得可能です。<br/>
+                    </p>
+                </dd>
+                
+                <dt class="reference">sql_param_name</dt>
+                <dd class="reference">
+                    <p>
+                        "sql" によって指定されるSQL文のうち、認証ユーザー名を表すパラメータ名を指定します。<br/>
+                        指定しない場合の既定値は 0 です。<br/>
+                    </p>
+                </dd>
+                
+                <dt class="reference">sql_param_passwd</dt>
+                <dd class="reference">
+                    <p>
+                        "sql" によって指定されるSQL文のうち、認証ユーザーパスワードを表すパラメータ名を指定します。<br/>
+                        指定しない場合の既定値は 1 です。<br/>
+                    </p>
+                </dd>
+                
+                </dl>
+            </dd>
+            
+            <dt class="item2">子要素</dt>
+            <dd class="item2">
+                [なし]
+            </dd>
+            
+            </dl>
+        </dd>
+        
+        </dl>
+        
+    </dd>
+    
+    
+    
+    <dt class="item" id="idHistory">更新履歴</dt>
+    <dd class="item">
+        <dl class="item2">
+        <dt class="item2">2008/12/24</dt>
+        <dd class="item2">
+            <ul>
+            <li>Version: 1.0.0.0</li>
+            </ul>
+        </dd>
+        
+        <dt class="item2">2009/06/19</dt>
+        <dd class="item2">
+            <ul>
+            <li>Version: 1.2.0.0</li>
+            <li>&lt;area/&gt;は上に書かれたものが優先になるように改良</li>
+            <li>認証しないエリアを指定できるように改良</li>
+            </ul>
+        </dd>
+        
+        <dt class="item2">2009/07/06</dt>
+        <dd class="item2">
+            <ul>
+            <li>Version: 2.2.0.0</li>
+            <li>認証ユーザーをDBから引けるように改良</li>
+            </ul>
+        </dd>
+        
+        <dt class="item2">2009/12/02</dt>
+        <dd class="item2">
+            <ul>
+            <li>Version: 2.2.1.0</li>
+            <li>パスワードの長さによって動作に不具合があった問題を解消</li>
+            </ul>
+        </dd>
+        
+        <dt class="item2">2010/03/31</dt>
+        <dd class="item2">
+            <ul>
+            <li>Version: 2.2.2.0</li>
+            <li>x64対応</li>
+            </ul>
+        </dd>
+        
+        </dl>
+    </dd>
+    
+    </dl>
+    
+    
+    
+    <div class="footer">
+        <p>
+            (C) <a href="http://na-s.jp/">Natural Style</a>, 2010/03/31 ___//
+        </p>
+        
+    </div>
+</body>
+
+</html>

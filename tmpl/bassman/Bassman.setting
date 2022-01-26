@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bassman reloadkey="">
+<!--
+//Sample [yrm.2009/07/06]
+//  To do Basic auth, you should edit this file as follows.
+//  See "Bassman.html" for detail.
+  
+	<area url="/member/.*" name="MemberAREA">
+		<user name="m001" passwd="1234"/>
+		<user name="m002" passwd="2345"/>
+		<user name="m003" passwd="3456"/>
+	</area>
+
+	<area url="/admin/.*" name="AdminAREA">
+		<user name="a001" passwd="1234"/>
+	</area>
+
+	<area url="/user/.*" name="UserAREA">
+		<db
+			connection="Provider=SQLOLEDB;Server=xxx;Database=xxx;User ID=xxx;Password=xxx" 
+			sql="select id from TUser where name=? and passwd=?"
+		/>
+	</area>
+
+	<area url="/nobassman/.*">
+-->
+
+</bassman>

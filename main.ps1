@@ -1,0 +1,1 @@
+cd "E:\scripts"; & ".\start_STARTER2019.ps1"  $Args[0] $Args[1] $Args[2] $Args[3]
