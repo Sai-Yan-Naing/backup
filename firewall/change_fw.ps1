@@ -11,6 +11,7 @@ $arg9 = $Args[8]
 $arg10 = $Args[9]
 $arg11 = $Args[10]
 $arg12 = $Args[11]
+$arg13 = $Args[12]
 
-PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File ""E:\scripts\firewall\change_fw_con.ps1"" $arg1 $arg2 $arg3 $arg4 $arg5 $arg6 $arg7 $arg8 $arg9 $arg10 $arg11 $arg12' -Verb RunAs}"
+PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File ""E:\scripts\firewall\change_fw_con.ps1"" $arg1 $arg2 $arg3 $arg4 $arg5 $arg6 $arg7 $arg8 $arg9 $arg10 $arg11 $arg12 $arg13' -Verb RunAs}"
 #write-host $arg10

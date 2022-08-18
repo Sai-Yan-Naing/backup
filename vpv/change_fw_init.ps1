@@ -24,8 +24,6 @@ $vm_change_action  = $Args[8]
 $vm_fw = $Args[9]
 $ip = $Args[10]
 $gateway = $Args[11]
-$changedate = $Args[12]
-$os = $Args[12]
 
 try {
     $session = get_session $host_ip $host_user $host_password
@@ -35,29 +33,29 @@ try {
             return "Complete Add new Port $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw"
         }
         "change_pass"{
-            $result = Invoke-Command -Session $session -Scriptblock{E:\vm_manager\change_pass.ps1 $Args[0] $Args[1] $Args[2] $Args[3] $Args[4] $Args[5]} -ArgumentList $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw
+            $result = Invoke-Command -Session $session -Scriptblock{E:\scripts\vm_manager\change_pass.ps1 $Args[0] $Args[1] $Args[2] $Args[3] $Args[4] $Args[5]} -ArgumentList $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw
             return $result
         }
         "install_sqlserver"{
-            Invoke-Command -Session $session -Scriptblock{E:\vm_manager\install_sqlserver.ps1 $Args[0] $Args[1] $Args[2] $Args[3] $Args[4] $Args[5]} -ArgumentList $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw
+            Invoke-Command -Session $session -Scriptblock{C:\vm_manager\install_sqlserver.ps1 $Args[0] $Args[1] $Args[2] $Args[3] $Args[4] $Args[5]} -ArgumentList $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw
             return "Complete Add new Port $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw"
         }
         "reinitializevm"{
-            $result = Invoke-Command -Session $session -Scriptblock{E:\vm_manager\reinitializevm.ps1 $Args[0] $Args[1] $Args[2] $Args[3] $Args[4] $Args[5] $Args[6] $Args[7] $Args[8]} -ArgumentList $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw, $ip, $gateway, $os
+            $result = Invoke-Command -Session $session -Scriptblock{C:\vm_manager\reinitializevm.ps1 $Args[0] $Args[1] $Args[2] $Args[3] $Args[4] $Args[5] $Args[6] $Args[7]} -ArgumentList $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw, $ip, $gateway
          return "success"
         }
         "changeplan"{
-            $result = Invoke-Command -Session $session -Scriptblock{C:\vm_manager\changeplan.ps1 $Args[0] $Args[1] $Args[2] $Args[3] $Args[4] $Args[5] $Args[6]} -ArgumentList $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw, $changedate
+            $result = Invoke-Command -Session $session -Scriptblock{C:\vm_manager\changeplan.ps1 $Args[0] $Args[1] $Args[2] $Args[3] $Args[4] $Args[5]} -ArgumentList $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw
          return "success"
         }
         "loadstatus"{
-            $result = Invoke-Command -Session $session -Scriptblock{E:\vm_manager\loadstatus.ps1 $Args[0] $Args[1] $Args[2] $Args[3] $Args[4] $Args[5]} -ArgumentList $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw
+            $result = Invoke-Command -Session $session -Scriptblock{C:\vm_manager\loadstatus.ps1 $Args[0] $Args[1] $Args[2] $Args[3] $Args[4] $Args[5]} -ArgumentList $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw
             
              return $result
          
         }
         "iisinstall"{
-            $result = Invoke-Command -Session $session -Scriptblock{E:\vm_manager\iis_install.ps1 $Args[0] $Args[1] $Args[2] $Args[3] $Args[4] $Args[5]} -ArgumentList $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw
+            $result = Invoke-Command -Session $session -Scriptblock{C:\vm_manager\iisinstall.ps1 $Args[0] $Args[1] $Args[2] $Args[3] $Args[4] $Args[5]} -ArgumentList $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw
             
              return $result
          

@@ -29,10 +29,12 @@ try {
         }
         "startup" {
             Invoke-Command -Session $session -Scriptblock{Start-VM -Name $Args[0]} -ArgumentList $vm_name
+            php E:\scripts\reboot.php $vm_name
             return "Complete start up."
         }
         "shutdown" {
             Invoke-Command -Session $session -Scriptblock{Stop-VM -Name $Args[0] -Force} -ArgumentList $vm_name
+            php E:\scripts\reboot.php $vm_name
             return "Complete shutdown."
         }
         "poweroff" {
@@ -54,8 +56,8 @@ try {
             echo "Complete export."
         }
         "delete_vm" {
-            $result = Invoke-Command -Session $session -Scriptblock{C:\vm_manager\delete_vm.ps1 $Args[0]} -ArgumentList $vm_name
-            return $result
+            Invoke-Command -Session $session -Scriptblock{E:\vm_manager\delete_vm.ps1 $Args[0]} -ArgumentList $vm_name
+            echo "Complete delete."
         }
         "delete_dir" {
             Invoke-Command -Session $session -Scriptblock{Remove-Item -path $Args[0] -recurse}  -ArgumentList $del_dir
