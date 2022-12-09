@@ -23,9 +23,11 @@ $vm_action = $Args[7]
 $vm_change_action  = $Args[8]
 $vm_fw = $Args[9]
 $ip = $Args[10]
+$osv = $Args[10]
 $gateway = $Args[11]
 $changedate = $Args[12]
 $os = $Args[12]
+$osname = $Args[13]
 
 try {
     $session = get_session $host_ip $host_user $host_password
@@ -35,7 +37,7 @@ try {
             return "Complete Add new Port $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw"
         }
         "change_pass"{
-            $result = Invoke-Command -Session $session -Scriptblock{E:\vm_manager\change_pass.ps1 $Args[0] $Args[1] $Args[2] $Args[3] $Args[4] $Args[5]} -ArgumentList $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw
+            $result = Invoke-Command -Session $session -Scriptblock{E:\vm_manager\change_pass.ps1 $Args[0] $Args[1] $Args[2] $Args[3] $Args[4] $Args[5] $Args[5]} -ArgumentList $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw, $osv
             return $result
         }
         "install_sqlserver"{
@@ -43,7 +45,7 @@ try {
             return "Complete Add new Port $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw"
         }
         "reinitializevm"{
-            $result = Invoke-Command -Session $session -Scriptblock{E:\vm_manager\reinitializevm.ps1 $Args[0] $Args[1] $Args[2] $Args[3] $Args[4] $Args[5] $Args[6] $Args[7] $Args[8]} -ArgumentList $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw, $ip, $gateway, $os
+            $result = Invoke-Command -Session $session -Scriptblock{E:\vm_manager\reinitializevm.ps1 $Args[0] $Args[1] $Args[2] $Args[3] $Args[4] $Args[5] $Args[6] $Args[7] $Args[8] $Args[9]} -ArgumentList $vm_name, $vm_user, $vm_pass, $vm_action, $vm_change_action, $vm_fw, $ip, $gateway, $os,$osname
          return "success"
         }
         "changeplan"{
